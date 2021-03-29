@@ -72,28 +72,33 @@
             const transactionArea = document.getElementById("transaction-area");
             transactionArea.style.display = "block";
         })
-        //deposit & withdraw
-        const depositBtn = document.getElementById("addDeposit");
-        depositBtn.addEventListener("click", function(){
+        //deposit
+            const depositBtn = document.getElementById("addDeposit");
+            depositBtn.addEventListener("click", function(){
             const depositAmount = document.getElementById("depositAmount").value;
             const depositNumber = parseFloat(depositAmount);
 
-            const currentDeposit = document.getElementById("currentDeposit").innerText;
-            const currentDepositNumber = parseFloat(currentDeposit);
-            const totalDeposit = depositNumber + currentDepositNumber;
-            
-            document.getElementById("currentDeposit").innerText = totalDeposit;
 
+
+            // const currentDeposit = document.getElementById("currentDeposit").innerText;
+            // const currentDepositNumber = parseFloat(currentDeposit);
+            // const totalDeposit = depositNumber + currentDepositNumber;
+            // document.getElementById("currentDeposit").innerText = totalDeposit;
+                // function dea call kora hocche. updateSpanText ai function
+                //  dea sobai k call kora hocche
             updateSpanText("currentBalance", depositNumber);
-
+            updateSpanText("currentDeposit", depositNumber);
+            
             document.getElementById("depositAmount").value = "";
+            
         })
-            function updateSpanTag(id, depositNumber){
-                const currentBalance = document.getElementById(id).innerText;
-                const currentBalanceNumber = parseFloat(currentBalance);
-                const currentTotal = depositNumber + currentBalanceNumber;
-                document.getElementById(id).innerText = currentTotal;
-            }
+        function updateSpanText(id, depositNumber){
+            const currentBalance = document.getElementById(id).innerText;
+            const currentBalanceNumber = parseFloat(currentBalance);
+            const totalBalance = depositNumber + currentBalanceNumber;
+            document.getElementById(id).innerText = totalBalance; 
+        }
+            
     </script>
 </body>
 </html>
