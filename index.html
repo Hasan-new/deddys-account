@@ -32,7 +32,7 @@
             <div class="col-md-4">
                 <div class="withdraw status">
                     <h5>Withdraw</h5>
-                    <h2>$00</h2>
+                    <h2>$ <span id="currentWithdraw">00</span></h2>
                 </div>
             </div>
             <div class="col-md-4">
@@ -72,7 +72,7 @@
             const transactionArea = document.getElementById("transaction-area");
             transactionArea.style.display = "block";
         })
-        //deposit
+        //deposit button event
             const depositBtn = document.getElementById("addDeposit");
             depositBtn.addEventListener("click", function(){
             const depositNumber = getInputNumber("depositAmount");
@@ -93,7 +93,7 @@
         const withdrawBtn = document.getElementById("addWithdraw");
         withdrawBtn.addEventListener("click", function(){
             const withdrawNumber = getInputNumber("withdrawAmount");
-            console.log(withdrawNumber);
+            updateSpanText("currentBalance", withdrawNumber);
         })
 
         function getInputNumber(id){
@@ -108,7 +108,9 @@
             const totalBalance = depositNumber + currentBalanceNumber;
             document.getElementById(id).innerText = totalBalance; 
         }
+
+        </script>
             
-    </script>
-</body>
-</html>
+        </body>
+        
+        </html>
